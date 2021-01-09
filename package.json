@@ -1,0 +1,20 @@
+{
+  "name": "weather-temp-proj",
+  "version": "1.0.0",
+  "description": "uses a temperature sensor that runs on a website on heroku",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennisliang01/weatherDashboard.git"
+  },
+  "author": "Dennis L",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dennisliang01/weatherDashboard/issues"
+  },
+  "homepage": "https://github.com/dennisliang01/weatherDashboard#readme"
+}
