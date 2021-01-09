@@ -1,16 +1,16 @@
-let http = require("http"); 
-let fs = require("fs"); 
-
-console.log("Hello  Running at 8080");
-http.createServer((req, res) =>{
-
-    fs.readFile("public/index.html", (err, data)=>{
-        res.writeHead(200, {"Content-Type": "text/html"});
-        res.write(data); 
-        return res.end();
-    });
-
-
-
-}).listen(process.env.PORT || 8000);
-
+const http = require('http');
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+//const route = require('');
+const app = express();
+app.use(bodyParser.urlencoded({extended: false})); app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res,next)=>{
+  
+   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+ });
+app.use((req, res,next)=>{
+   res.status(404).send('<h1> Page not found </h1>');
+});
+const server = http.createServer(app);
+server.listen(process.env.PORT ||  3000);
