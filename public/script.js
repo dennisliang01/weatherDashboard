@@ -17,11 +17,20 @@
   //var database = firebase.database();
 
   //var userId = firebase.auth().currentUser.uid;
-   var dbRef =  firebase.database();
-   const values = dbRef.child("test"); 
-   console.log(values); 
+   var dbRef =  firebase.database().ref();
+   const weatherRef = dbRef.child("table"); 
+   weatherRef.on("value", snapshot => {
+     snapshot.forEach(rowSnapshot => {
+      let key = rowSnapshot.key;
+      let value = rowSnapshot.val();
 
-console.log("variables");
+      console.log(value);
+      console.log(key);
+
+
+     });
+   });
+  
 const selectDeviceBtn = document.querySelector("#select_device");
 const output = document.querySelector("#output");
 const cutDeviceBtn = document.querySelector("#cut_device");
